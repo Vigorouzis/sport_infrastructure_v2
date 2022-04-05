@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sport_infrastructure/core/app_colors.dart';
 import 'package:sport_infrastructure/presentation/screens/search_result_screen.dart';
 
-
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -49,7 +48,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   suffixIcon: IconButton(
                       onPressed: () =>
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const SearchResultScreen(),
+                            builder: (context) => SearchResultScreen(
+                                title: _searchController.text),
                           )),
                       icon: const Icon(Icons.search)),
                 ),
@@ -71,14 +71,14 @@ class ContentSlider extends StatefulWidget {
 }
 
 class _ContentSliderState extends State<ContentSlider> {
-  int _currentIndex = 0;
-
   List cardList = [
     const _Item1(),
     const _Item2(),
     const _Item3(),
     const _Item4()
   ];
+
+  int _currentIndex = 0;
 
   List<T> map<T>(List list, Function handler) {
     List<T> result = [];

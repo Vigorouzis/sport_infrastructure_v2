@@ -15,6 +15,7 @@ class SearchResultScreenBloc
       : super(const SearchResultScreenState.initialState()){
    on<GetPlaces>((event, emit) {
      //TODO: написать код получения мест с сервера(репозиторий и т.п)
+     emit(const SearchResultScreenState.initialState());
    },);
    on<GetOrganization>((event, emit) {
      //TODO: написать код получения организации с сервера(репозиторий и т.п)
